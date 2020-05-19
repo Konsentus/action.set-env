@@ -1,0 +1,5 @@
+name: Set environment variables from configuration file
+description: Reads in the config.yaml
+runs:
+  using: "docker"
+  image: "Dockerfile"
