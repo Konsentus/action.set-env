@@ -9,7 +9,10 @@ config_file = os.environ["INPUT_CONFIG_FILE"]
 with open(f"/github/workspace/{config_file}", "r") as stream:
     config = yaml.safe_load(stream)
 
-env = os.environ["APP_ENV"]
+env = os.getenv("APP_ENV")
+if env is not None:
+    referenceSplit = os.environ["GITHUB_REF"].split("refs/heads/")
+    env = referenceSplit[1] if len(referenceSplit) > 1 else "feature"
 
 defaultConfig = config.get("default", {})
 envConfig = config.get(env)

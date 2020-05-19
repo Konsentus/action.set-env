@@ -1,10 +1,10 @@
 name: Set environment variables from configuration file
-description: Reads in the config.yaml
+description: Reads in the a configuration file and outputs the contents to environmental variables. Uses APP_ENV
 runs:
   using: "docker"
   image: "Dockerfile"
 inputs:
   config_file:
-    description: The path to the configuration file. Defaults to config.yaml in the repo root.
+    description: The path to the configuration file. Defaults to config.yaml in the .github folder.
     required: false
-    default: "config.yaml"
+    default: ".github/config.yaml"
