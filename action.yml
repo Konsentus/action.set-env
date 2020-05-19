@@ -3,3 +3,7 @@ description: Reads in the config.yaml
 runs:
   using: "docker"
   image: "Dockerfile"
+inputs:
+  config_file:
+    description: The path to the configuration file. Defaults to config.yaml in the repo root.
+    required: false
