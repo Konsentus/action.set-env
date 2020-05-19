@@ -10,7 +10,7 @@ with open(f"/github/workspace/{config_file}", "r") as stream:
     config = yaml.safe_load(stream)
 
 env = os.getenv("APP_ENV")
-if env is not None:
+if env is None:
     referenceSplit = os.environ["GITHUB_REF"].split("refs/heads/")
     env = referenceSplit[1] if len(referenceSplit) > 1 else "feature"
 
