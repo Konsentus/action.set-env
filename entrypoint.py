@@ -4,7 +4,9 @@ import yaml
 import os
 from pathlib import Path
 
-with open(f"{Path(__file__).parent}/config.yaml", "r") as stream:
+config_file = os.environ["INPUT_CONFIG_FILE"]
+
+with open(f"/github/workspace/config.yaml", "r") as stream:
     config = yaml.safe_load(stream)
 
 env = os.environ["APP_ENV"]
