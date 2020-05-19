@@ -1,10 +1,10 @@
-# Set Environment Github Action
+# Set Environment Variables Github Action
 
-A Github action to read in a configuration file and set the environmental variables based on the values in it.
+A Github action to read in a configuration file and set the environmental variables based on the values in it. If an variable is not present in the environment section, then the default value is used.
 
 ## How to Use
 
-With a config.yaml file in the root of your repo:
+With a config.yaml file in the .github folder of your repo:
 
 ```yml
 default:
@@ -25,3 +25,17 @@ Which can then be read and output in the following workflow steps:
     echo $DEFAULT_VALUE
     echo $ENV_VALUE
 ```
+
+The environment used is either passed using the APP_ENV environmental variable or if not present, defaults to the branch name within the GITHUB_REF environmental variable.
+
+## Optional Environmental Variables
+
+- `APP_ENV`: the environment to use when reading the configuration file
+
+## Optional Arguments
+
+- `config_file`: allows a configuration file other than .github/config.yaml to be read
+
+## Outputs
+
+The action doesn't have any action outputs, instead it outputs the configuration as environmental variables which can be used by subsequent steps.

@@ -1,5 +1,5 @@
 name: Set environment variables from configuration file
-description: Reads in the a configuration file and outputs the contents to environmental variables. Uses APP_ENV
+description: Reads in the a configuration file and outputs the contents to environmental variables.
 runs:
   using: "docker"
   image: "Dockerfile"
