@@ -4,7 +4,7 @@ A Github action to read in a configuration file and set the environmental variab
 
 ## How to Use
 
-With a config.yaml file in the .github folder of your repo:
+With an env.yaml file in the .github folder of your repo:
 
 ```yml
 default:
@@ -34,7 +34,7 @@ The environment used is either passed using the APP_ENV environmental variable o
 
 ## Optional Arguments
 
-- `config_file`: allows a configuration file other than .github/config.yaml to be read
+- `config_file`: allows a configuration file other than .github/env.yaml to be read
 
 ## Outputs
 
