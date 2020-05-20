@@ -5,6 +5,6 @@ runs:
   image: "Dockerfile"
 inputs:
   config_file:
-    description: The path to the configuration file. Defaults to config.yaml in the .github folder.
+    description: The path to the configuration file. Defaults to env.yaml in the .github folder.
     required: false
-    default: ".github/config.yaml"
+    default: ".github/env.yaml"
