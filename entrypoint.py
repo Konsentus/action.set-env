@@ -11,8 +11,9 @@ with open(f"/github/workspace/{config_file}", "r") as stream:
 
 env = os.getenv("APP_ENV")
 if env is None:
-    referenceSplit = os.environ["GITHUB_REF"].split("refs/heads/")
-    env = referenceSplit[1] if len(referenceSplit) > 1 else "feature"
+    # Use the first part of the branch name to ensure feature and hotfix
+    # branches just return feature or hotfix.
+    env = os.environ["GITHUB_REF"].replace("refs/heads/", "").split("/")[0]
 
 defaultConfig = config.get("default", {})
 envConfig = config.get(env)
