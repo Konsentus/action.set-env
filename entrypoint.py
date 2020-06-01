@@ -2,7 +2,6 @@
 
 import yaml
 import os
-from pathlib import Path
 
 config_file = os.environ["INPUT_CONFIG_FILE"]
 
@@ -29,8 +28,8 @@ mergedConfig = {**defaultConfig, **envConfig}
 for k, v in mergedConfig.items():
     print(f"::set-env name={k.upper()}::{v}")
 
-repo_name = os.environ["GITHUB_REPOSITORY"][
-    len(os.environ["GITHUB_REPOSITORY_OWNER"] + 1) :
-]
+owner_length = len(os.environ["GITHUB_REPOSITORY_OWNER"]) + 1
+repo_name = os.environ["GITHUB_REPOSITORY"][owner_length:]
+
 print(f"::set-env name=REPO_NAME::{repo_name}")
 print(f"::set-env name=REPO_NAME_DASH::{repo_name.replace('.','-')}")
