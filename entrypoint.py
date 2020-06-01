@@ -22,9 +22,15 @@ if not isinstance(defaultConfig, dict):
     raise Exception("Default config is not an instance of dictionary")
 
 if not envConfig or not isinstance(envConfig, dict):
-    raise Exception(f"No config defined for environment {env}")
+    print(f"No config explicitly defined for environment {env}, using default")
 
 mergedConfig = {**defaultConfig, **envConfig}
 
 for k, v in mergedConfig.items():
     print(f"::set-env name={k.upper()}::{v}")
+
+repo_name = os.environ["GITHUB_REPOSITORY"][
+    len(os.environ["GITHUB_REPOSITORY_OWNER"] + 1) :
+]
+print(f"::set-env name=REPO_NAME::{repo_name}")
+print(f"::set-env name=REPO_NAME_DASH::{repo_name.replace('.','-')}")
