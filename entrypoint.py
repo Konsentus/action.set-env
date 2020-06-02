@@ -22,6 +22,7 @@ if not isinstance(defaultConfig, dict):
 
 if not envConfig or not isinstance(envConfig, dict):
     print(f"No config explicitly defined for environment {env}, using default")
+    envConfig = {}
 
 mergedConfig = {**defaultConfig, **envConfig}
 
