@@ -2,6 +2,11 @@
 
 A Github action to read in a configuration file and set the environmental variables based on the values in it. If an variable is not present in the environment section, then the default value is used.
 
+In addition it will set the following environmental variables:
+
+- REPO_NAME : The name of the GITHUB_REPOSITORY without the owners name
+- ECR_REPO_NAME : The name of the GITHUB_REPOSITORY without the owners name, but with all dots replaced with dashes
+
 ## How to Use
 
 With an env.yaml file in the .github folder of your repo:
