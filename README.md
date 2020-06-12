@@ -5,7 +5,7 @@ A Github action to read in a configuration file and set the environmental variab
 In addition it will set the following environmental variables:
 
 - REPO_NAME : The name of the GITHUB_REPOSITORY without the owners name
-- ECR_REPO_NAME : The name of the GITHUB_REPOSITORY without the owners name, but with all dots replaced with dashes
+- REPO_NAME_DASH : The name of the GITHUB_REPOSITORY without the owners name, but with all dots replaced with dashes
 
 ## How to Use
 
