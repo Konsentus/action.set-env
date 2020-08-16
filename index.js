@@ -28,8 +28,8 @@ const run = async () => {
     core.info(`env: ${env}`);
     core.info(`repoName: ${repoName}`);
 
-    core.exportVariable(REPO_NAME, repoName);
-    core.exportVariable(REPO_NAME_DASH, repo_name.replace('.', '-'));
+    core.exportVariable('REPO_NAME', repoName);
+    core.exportVariable('REPO_NAME_DASH', repo_name.replace('.', '-'));
 
     const config = readYamlFile(configFileName);
 
