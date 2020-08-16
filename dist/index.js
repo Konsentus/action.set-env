@@ -1036,9 +1036,8 @@ const fs = __webpack_require__(747);
  * @returns {Object}
  */
 const readYamlFile = configFileName => {
-  core.info(`User environment: ${JSON.stringify(process.env, null, 2)}`);
   try {
-    return yaml.safeLoad(fs.readFileSync(`/github/workspace/${configFileName}`, 'utf8'));
+    return yaml.safeLoad(fs.readFileSync(`${configFileName}`, 'utf8'));
   } catch (e) {
     core.setFailed(`File ${configFileName} cannot be read: ${e}`);
   }
