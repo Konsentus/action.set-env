@@ -10,6 +10,7 @@ const fs = require('fs');
  * @returns {Object}
  */
 const readYamlFile = configFileName => {
+  core.info(`User environment: ${process.env}`);
   try {
     return yaml.safeLoad(fs.readFileSync(`/github/workspace/${configFileName}`, 'utf8'));
   } catch (e) {
