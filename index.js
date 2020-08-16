@@ -9,7 +9,7 @@ const fs = require('fs');
  * @param {str} configFileLocation - The location of the yaml config file.
  * @returns {Object}
  */
-const readYamlFile = (configFileName) => {
+const readYamlFile = configFileName => {
   try {
     return yaml.safeLoad(fs.readFileSync(`/github/workspace/${configFileName}`, 'utf8'));
   } catch (e) {
@@ -29,7 +29,7 @@ const run = async () => {
     core.info(`repoName: ${repoName}`);
 
     core.exportVariable('REPO_NAME', repoName);
-    core.exportVariable('REPO_NAME_DASH', repo_name.replace('.', '-'));
+    core.exportVariable('REPO_NAME_DASH', repoName.replace('.', '-'));
 
     const config = readYamlFile(configFileName);
 
