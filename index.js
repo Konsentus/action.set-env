@@ -13,7 +13,7 @@ const readYamlFile = configFileName => {
   try {
     return yaml.safeLoad(fs.readFileSync(`/github/workspace/${configFileName}`, 'utf8'));
   } catch (e) {
-    core.setFailed(`File ${configFileName} cannot be read: ${err}`);
+    core.setFailed(`File ${configFileName} cannot be read: ${e}`);
   }
 };
 
