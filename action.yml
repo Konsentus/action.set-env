@@ -1,10 +1,11 @@
 name: Set environment variables from configuration file
-description: Reads in the a configuration file and outputs the contents to environmental variables.
-runs:
-  using: "docker"
-  image: "Dockerfile"
+description: Reads in the yaml configuration file and outputs the contents to environmental variables, if a default key is set the configuration options can be used across multiple environments.
+author: Konsentus Ltd
 inputs:
   config_file:
     description: The path to the configuration file. Defaults to env.yaml in the .github folder.
     required: false
-    default: ".github/env.yaml"
+    default: '.github/env.yaml'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
