@@ -26,11 +26,13 @@ if not envConfig or not isinstance(envConfig, dict):
 
 mergedConfig = {**defaultConfig, **envConfig}
 
-for k, v in mergedConfig.items():
-    print(f"::set-env name={k.upper()}::{v}")
+with open(os.environ["GITHUB_ENV"], "a") as environment_file:
 
-owner_length = len(os.environ["GITHUB_REPOSITORY_OWNER"]) + 1
-repo_name = os.environ["GITHUB_REPOSITORY"][owner_length:]
+    for k, v in mergedConfig.items():
+        environment_file.write(f"{k.upper()}={v}\n")
 
-print(f"::set-env name=REPO_NAME::{repo_name}")
-print(f"::set-env name=REPO_NAME_DASH::{repo_name.replace('.','-')}")
+    owner_length = len(os.environ["GITHUB_REPOSITORY_OWNER"]) + 1
+    repo_name = os.environ["GITHUB_REPOSITORY"][owner_length:]
+
+    environment_file.write(f"REPO_NAME={repo_name}\n")
+    environment_file.write(f"REPO_NAME_DASH={repo_name.replace('.','-')}\n")
