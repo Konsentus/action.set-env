@@ -29,7 +29,7 @@ mergedConfig = {**defaultConfig, **envConfig}
 with open(os.environ["GITHUB_ENV"], "a") as environment_file:
 
     for k, v in mergedConfig.items():
-        if "\n" in v:
+        if "\n" in str(v):
             environment_file.write(f"{k.upper()}<<delimiter\n{v}\ndelimiter\n")
         else:
             environment_file.write(f"{k.upper()}={v}\n")
