@@ -29,7 +29,10 @@ mergedConfig = {**defaultConfig, **envConfig}
 with open(os.environ["GITHUB_ENV"], "a") as environment_file:
 
     for k, v in mergedConfig.items():
-        environment_file.write(f"{k.upper()}={v}\n")
+        if "\n" in str(v):
+            environment_file.write(f"{k.upper()}<<delimiter\n{v}delimiter\n")
+        else:
+            environment_file.write(f"{k.upper()}={v}\n")
 
     owner_length = len(os.environ["GITHUB_REPOSITORY_OWNER"]) + 1
     repo_name = os.environ["GITHUB_REPOSITORY"][owner_length:]
