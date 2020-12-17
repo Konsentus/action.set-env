@@ -37,6 +37,5 @@ with open(os.environ["GITHUB_ENV"], "a") as environment_file:
     owner_length = len(os.environ["GITHUB_REPOSITORY_OWNER"]) + 1
     repo_name = os.environ["GITHUB_REPOSITORY"][owner_length:]
 
-    environment_file.write(f"APP_ENV={env}\n")
     environment_file.write(f"REPO_NAME={repo_name}\n")
     environment_file.write(f"REPO_NAME_DASH={repo_name.replace('.','-')}\n")
