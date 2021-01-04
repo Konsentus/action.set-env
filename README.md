@@ -4,12 +4,13 @@ A Github action to read in a configuration file and set the environmental variab
 
 In addition it will set the following environmental variables:
 
-- REPO_NAME : The name of the GITHUB_REPOSITORY without the owners name
-- REPO_NAME_DASH : The name of the GITHUB_REPOSITORY without the owners name, but with all dots replaced with dashes
+- `APP_ENV` : The application environment detected
+- `REPO_NAME` : The name of the `GITHUB_REPOSITORY` without the owners name
+- `REPO_NAME_DASH` : The name of the `GITHUB_REPOSITORY` without the owners name, but with all dots replaced with dashes
 
 ## How to Use
 
-With an env.yaml file in the .github folder of your repo:
+With an `env.yaml` file in the `.github` folder of your repo:
 
 ```yml
 default:
@@ -31,7 +32,7 @@ Which can then be read and output in the following workflow steps:
     echo $ENV_VALUE
 ```
 
-The environment used is either passed using the APP_ENV environmental variable or if not present, defaults to the branch name within the GITHUB_REF environmental variable.
+The environment used is either passed using the `APP_ENV` environmental variable or if not present, defaults to the branch name within the `GITHUB_REF` environmental variable.
 
 ## Optional Environmental Variables
 
@@ -39,7 +40,7 @@ The environment used is either passed using the APP_ENV environmental variable o
 
 ## Optional Arguments
 
-- `config_file`: allows a configuration file other than .github/env.yaml to be read
+- `config_file`: allows a configuration file other than `.github/env.yaml` to be read
 
 ## Outputs
 
